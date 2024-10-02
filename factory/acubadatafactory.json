@@ -1,0 +1,9 @@
+{
+	"name": "acubadatafactory",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "b43f8009-05db-49df-95de-34992f0ee281",
+		"tenantId": "2a3318da-fbd9-40af-ad96-3f536021dbbb"
+	}
+}
