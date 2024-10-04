@@ -15,7 +15,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/araceli.cuba2802@hotmail.com/ingesta_capa_bronce_a_plata"
+					"notebookPath": "/Users/araceli.cuba2802@hotmail.com/ingesta_capa_plata_oro"
 				},
 				"linkedServiceName": {
 					"referenceName": "Conector_Databricks_DataFactory",
