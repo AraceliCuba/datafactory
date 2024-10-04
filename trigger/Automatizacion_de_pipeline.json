@@ -1,0 +1,25 @@
+{
+	"name": "Automatizacion_de_pipeline",
+	"properties": {
+		"description": "Desencadena la ejecucion del pipeline bajo una programacion indicada.",
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pipeline__principal_ejecutor",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 5,
+				"startTime": "2024-10-04T20:30:00",
+				"timeZone": "SA Pacific Standard Time"
+			}
+		}
+	}
+}

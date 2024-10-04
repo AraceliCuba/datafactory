@@ -1,0 +1,71 @@
+{
+	"name": "pipeline__principal_ejecutor",
+	"properties": {
+		"description": "Pipeline principal que ejecuta los pipelines de ingesta y transformación.",
+		"activities": [
+			{
+				"name": "Ejecutor_input_bronce",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "ingesta_input_capa_bronce",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Ejecutor_bronce_plata",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Ejecutor_input_bronce",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "ingesta_capa_bronce_plata",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Ejecutor_plata_oro",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Ejecutor_bronce_plata",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "ingesta_capa_plata_oro",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"annotations": []
+	}
+}
